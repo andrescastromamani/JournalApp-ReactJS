@@ -1,0 +1,14 @@
+.auth_main {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: $primary-color;
+    width: 100vw;
+    height: 100vh;
+}
+.auth_boxcontainer{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: black 0.1rem 0.1rem 0.5rem;
+}
