@@ -2,13 +2,69 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    background-color: $primary-color;
-    width: 100vw;
+    background-color: $primary_color;
     height: 100vh;
 }
-.auth_boxcontainer{
+.auth_boxcontainer {
     background-color: white;
-    padding: 2rem;
+    padding: 3rem;
     border-radius: 1rem;
     box-shadow: black 0.1rem 0.1rem 0.5rem;
+    width: 20rem;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.input__label{
+margin-right: auto;
+margin-bottom: 0.5rem;
+}
+.auth__title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.auth__input {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: black 1px solid;
+    border-radius: 1rem;
+}
+.btn{
+    width: 107%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: $primary_color;
+    color: white;
+    border-radius: 1rem;
+}
+.social__title {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.google__btn {
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    border: black 1px solid;
+    color: $secondary-color;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+.google__icon {
+    margin-right: 0.5rem;
+}
+.create__acount{
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 1rem;
+    color: black;
 }
