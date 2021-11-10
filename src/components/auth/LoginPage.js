@@ -15,8 +15,8 @@ export const LoginPage = () => {
                 <div className="social__networks">
                     <p className="social__title">Login with social networks</p>
                     <div>
-                        <a className="google__btn" href="#">
-                            <img className="google__icon" width="15px" alt="Google login" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                        <a className="google__btn" href="www.google.com">
+                            <img className="google__icon" width="15px" alt="Google login" src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png" />
                             Sign in with Google
                         </a>
                     </div>
