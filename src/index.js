@@ -7,7 +7,7 @@ import './styles/styles.scss';
 
 ReactDOM.render(
   <BrowserRouter>
-    <JournalApp />,
+    <JournalApp />
   </BrowserRouter>,
   document.getElementById('root')
 );

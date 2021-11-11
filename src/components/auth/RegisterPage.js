@@ -15,7 +15,7 @@ export const RegisterPage = () => {
                 <label className="input__label">Password Confirm:</label>
                 <input className="auth__input" type="password" name="passwordconfirm" />
                 <button className="btn" type="submit">Register</button>
-                <Link className="create__acount" to="/login">
+                <Link className="create__acount" to="/auth/login">
                     Already have an account?
                 </Link>
             </form>
