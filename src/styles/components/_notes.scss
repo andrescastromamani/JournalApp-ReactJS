@@ -11,3 +11,35 @@
     justify-content: space-between;
     padding: 1rem;
 }
+.notes__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 2rem;
+    }
+.notes__input,
+.notes__textarea,
+.notes__image {
+    background-color: white;
+    border: 1px solid black;
+    font-size: 1rem;
+    margin: 0.5rem 10rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    &:focus {
+        outline: none;
+    }
+}
+.notes__textarea {
+    flex: 1 1 auto;
+    resize: none;
+}
+.notes__image {
+    height: auto;
+    border: none;
+}
+.notes__image img {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 1rem;
+}
