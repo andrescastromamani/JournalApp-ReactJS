@@ -1,3 +1,14 @@
+.journal__btn {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        color: gray;
+    }
+}
 .journal__main {
     display: flex;
 }
@@ -67,7 +78,10 @@
     flex-direction: column;
     padding: 1rem;
 }
-.journal__entrydate p{
+.journal__entrydate p {
     color: black;
     font-weight: bold;
+}
+.journal_content {
+    width: 100%;
 }

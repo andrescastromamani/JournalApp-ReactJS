@@ -9,7 +9,7 @@ export const Sidebar = () => {
                     <i className="fas fa-user"></i>
                     <span> Andres</span>
                 </h3>
-                <button>Logout</button>
+                <button className="journal__btn">Logout</button>
             </div>
             <div className="journal__newentry">
                 <i className="far fa-calendar-plus"></i>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { NotesPage } from '../notes/NotesPage'
 import { Sidebar } from './Sidebar'
 
 export const JournalPage = () => {
@@ -6,11 +7,7 @@ export const JournalPage = () => {
         <div className="journal__main">
             <Sidebar />
             <main className="journal_content">
-                <h1>Journal</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Pellentesque euismod, urna eu tincidunt consectetur,
-                </p>
+                <NotesPage />
             </main>
         </div>
     )
