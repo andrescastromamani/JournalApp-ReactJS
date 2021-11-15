@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useForm } from '../../hooks/useForm'
-import { authStart } from '../../actions/auth'
+import { authGoogleStart, authStart } from '../../actions/auth'
 
 export const LoginPage = () => {
     const dispatch = useDispatch();
@@ -15,6 +15,9 @@ export const LoginPage = () => {
         e.preventDefault();
         dispatch(authStart(email, password));
     }
+    const handleGoogleSignIn = () => {
+        dispatch(authGoogleStart());
+    }
     return (
         <>
             <h1 className="auth__title">Login</h1>
@@ -23,12 +26,12 @@ export const LoginPage = () => {
                 <input className="auth__input" type="email" name="email" value={email} onChange={setValues} placeholder="email@email.com" autoComplete="off" />
                 <label className="input__label">Password:</label>
                 <input className="auth__input" type="password" name="password" value={password} onChange={setValues} />
-                <button className="btn" type="submit">Login</button>
+                <button className="btn" type="submit" >Login</button>
 
                 <div className="social__networks">
                     <p className="social__title">Login with social networks</p>
                     <div>
-                        <a className="google__btn" href="www.google.com">
+                        <a className="google__btn" onClick={handleGoogleSignIn}>
                             <img className="google__icon" width="15px" alt="Google login" src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png" />
                             Sign in with Google
                         </a>
