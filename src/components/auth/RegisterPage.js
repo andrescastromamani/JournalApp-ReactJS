@@ -5,6 +5,7 @@ import validator from 'validator';
 
 import { useForm } from '../../hooks/useForm'
 import { removeError, setError } from '../../actions/ui';
+import { registerStart } from '../../actions/auth';
 
 export const RegisterPage = () => {
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const RegisterPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isFormValid()) {
-            console.log('Form is valid');
+            dispatch(registerStart(email, password, name));
         }
 
     }
