@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import validator from 'validator';
 
 import { useForm } from '../../hooks/useForm'
+import { removeError, setError } from '../../actions/ui';
 
 export const RegisterPage = () => {
+    const dispatch = useDispatch();
     const [values, setVelues] = useForm({
         name: 'Daniel Castro',
         email: 'daniel@gmail.com',
@@ -22,21 +25,22 @@ export const RegisterPage = () => {
     }
     const isFormValid = () => {
         if (name.trim().length === 0) {
-            console.log('Name is required');
+            dispatch(setError('Name is required'));
             return false;
         } else if (validator.isEmail(email) === false || email.trim().length === 0) {
-            console.log('Email is not valid');
+            dispatch(setError('Email is invalid'));
             return false;
         } else if (password !== confirmPassword || password.length < 6) {
-            console.log('Password is not match');
+            dispatch(setError('Different Password'));
             return false;
         }
+        dispatch(removeError());
         return true;
     }
     return (
         <>
             <h1 className="auth__title">Register</h1>
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit} noValidate>
                 <label className="input__label">Name</label>
                 <input className="auth__input" type="text" name="name" placeholder="Name" autoComplete="off" value={name} onChange={setVelues} />
                 <label className="input__label">Email</label>
