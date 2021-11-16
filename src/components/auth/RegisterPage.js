@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import validator from 'validator';
 
 import { useForm } from '../../hooks/useForm'
@@ -8,6 +8,7 @@ import { removeError, setError } from '../../actions/ui';
 
 export const RegisterPage = () => {
     const dispatch = useDispatch();
+    const { msgError } = useSelector(state => state.ui);
     const [values, setVelues] = useForm({
         name: 'Daniel Castro',
         email: 'daniel@gmail.com',
@@ -17,7 +18,6 @@ export const RegisterPage = () => {
     const { name, email, password, confirmPassword } = values;
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(values);
         if (isFormValid()) {
             console.log('Form is valid');
         }
@@ -41,6 +41,9 @@ export const RegisterPage = () => {
         <>
             <h1 className="auth__title">Register</h1>
             <form className="form" onSubmit={handleSubmit} noValidate>
+                {
+                    msgError && <div className="form__alert">{msgError}</div>
+                }
                 <label className="input__label">Name</label>
                 <input className="auth__input" type="text" name="name" placeholder="Name" autoComplete="off" value={name} onChange={setVelues} />
                 <label className="input__label">Email</label>
