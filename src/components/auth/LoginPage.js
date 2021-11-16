@@ -7,8 +7,8 @@ import { authGoogleStart, authStart } from '../../actions/auth'
 export const LoginPage = () => {
     const dispatch = useDispatch();
     const [values, setValues] = useForm({
-        email: 'admin@admin.com',
-        password: 'admin123'
+        email: 'daniel@gmail.com',
+        password: 'daniel123'
     });
     const { email, password } = values;
     const handleSubmit = (e) => {
