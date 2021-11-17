@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@firebase/auth';
 import { provider, signInWithPopup, getAuth } from '../firebase/firebaseConfig';
 import { types } from "../types/types"
 import { finishLoading, startLoading } from './ui';
@@ -51,5 +51,16 @@ export const login = (uid, displayName) => {
             uid,
             displayName
         }
+    }
+}
+export const startLogout = () => {
+    return async (dispatch) => {
+        await signOut(getAuth());
+        dispatch(logout());
+    }
+}
+export const logout = () => {
+    return {
+        type: types.logout
     }
 }
