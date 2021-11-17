@@ -1,18 +1,21 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@firebase/auth';
 import { provider, signInWithPopup, getAuth } from '../firebase/firebaseConfig';
 import { types } from "../types/types"
+import { finishLoading, startLoading } from './ui';
 
 export const authStart = (email, password) => {
     return (dispatch) => {
+        dispatch(startLoading());
         signInWithEmailAndPassword(getAuth(), email, password)
             .then(({ user }) => {
-                console.log(user);
                 dispatch(
                     login(user.uid, user.displayName)
                 )
+                dispatch(finishLoading());
             })
             .catch(error => {
                 console.log(error);
+                dispatch(finishLoading());
             })
     }
 }
