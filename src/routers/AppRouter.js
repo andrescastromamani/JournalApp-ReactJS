@@ -1,10 +1,13 @@
 import { getAuth, onAuthStateChanged } from '@firebase/auth';
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import { login } from '../actions/auth';
 import { JournalPage } from '../components/journal/JournalPage';
 import { AuthRouter } from './AuthRouter';
+import { PrivateRoute } from './PrivateRoute';
+import { PublicRoute } from './PublicRoute';
+
 export const AppRouter = () => {
     const dispatch = useDispatch();
     const [cheking, setCheking] = useState(true);
@@ -26,10 +29,17 @@ export const AppRouter = () => {
     return (
         <>
             <Routes>
-                <Route path="/" element={<JournalPage />} />
-                <Route path="auth/*" element={<AuthRouter />} />
+                <Route path="/" element={
+                    <PrivateRoute isLogged={islogged}>
+                        <JournalPage />
+                    </PrivateRoute>
+                } />
+                <Route path="auth/*" element={
+                    <PublicRoute isLogged={islogged}>
+                        <AuthRouter />
+                    </PublicRoute>
+                } />
             </Routes>
-
         </>
 
     )
