@@ -32,7 +32,7 @@ export const LoginPage = () => {
                 <div className="social__networks">
                     <p className="social__title">Login with social networks</p>
                     <div>
-                        <a className="google__btn" onClick={handleGoogleSignIn} href="www.google.com">
+                        <a className="google__btn" onClick={handleGoogleSignIn} href="#">
                             <img className="google__icon" width="15px" alt="Google login" src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png" />
                             Sign in with Google
                         </a>

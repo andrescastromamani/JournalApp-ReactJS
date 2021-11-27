@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { login } from '../actions/auth';
+import { setNotes } from '../actions/notes';
 import { JournalPage } from '../components/journal/JournalPage';
+import { loadNotes } from '../helpers/loadNotes';
 import { AuthRouter } from './AuthRouter';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
@@ -13,10 +15,12 @@ export const AppRouter = () => {
     const [cheking, setCheking] = useState(true);
     const [islogged, setIslogged] = useState(false);
     useEffect(() => {
-        onAuthStateChanged(getAuth(), (user) => {
+        onAuthStateChanged(getAuth(), async (user) => {
             if (user?.uid) {
                 dispatch(login(user.uid, user.displayName));
                 setIslogged(true);
+                const notes = await loadNotes(user.uid);
+                dispatch(setNotes(notes));
             } else {
                 setIslogged(false);
             }
