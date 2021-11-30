@@ -1,7 +1,6 @@
 import { db, collection, getDocs } from "../firebase/firebaseConfig"
 
 export const loadNotes = async (uid) => {
-    console.log(uid);
     const querySnapshot = await getDocs(collection(db, `${uid}/journal  /notes`));
     const notes = [];
     querySnapshot.forEach((doc) => {
@@ -10,6 +9,5 @@ export const loadNotes = async (uid) => {
             ...doc.data()
         });
     });
-    console.log(notes);
     return notes;
 }

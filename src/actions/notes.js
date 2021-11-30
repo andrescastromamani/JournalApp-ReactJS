@@ -1,4 +1,5 @@
 import { db, collection, addDoc } from "../firebase/firebaseConfig";
+import { loadNotes } from "../helpers/loadNotes";
 import { types } from "../types/types";
 
 export const startNotes = () => {
@@ -8,6 +9,7 @@ export const startNotes = () => {
         const newNote = {
             title: '',
             body: '',
+            url: '',
             createdAt: new Date().getTime(),
         }
         const docRef = await addDoc(collection(db, `${uid}/journal  /notes`), newNote);
@@ -26,6 +28,12 @@ export const activeNote = (id, note) => (
     }
 )
 
+export const startLoadNotes = (uid) => {
+    return async (dispatch) => {
+        const notes = await loadNotes(uid);
+        dispatch(setNotes(notes));
+    }
+}
 export const setNotes = (notes) => ({
     type: types.notesLoad,
     payload: notes
