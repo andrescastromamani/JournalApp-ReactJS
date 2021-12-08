@@ -30,7 +30,7 @@ export const NotesPage = () => {
                 {
                     active.url &&
                     <div className="notes__image">
-                        <img src="https://s3-us-west-2.amazonaws.com/devcodepro/media/tutorials/instalacion-de-nodejs-en-ubuntu-t1.jpg" alt="save" />
+                        <img src={active.url} alt="save" />
                     </div>
                 }
             </div>
