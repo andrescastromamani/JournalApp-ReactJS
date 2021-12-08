@@ -3,19 +3,23 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { activeNote } from '../../actions/notes';
 
-export const JournalEntry = ({ id, body, title, createdAt }) => {
+export const JournalEntry = ({ id, body, title, url, createdAt }) => {
     const dispatch = useDispatch();
     const date = moment(createdAt);
     const handleShowEnrtry = () => {
-        dispatch(activeNote(id, { body, title, createdAt }));
+        dispatch(activeNote(id, { body, title, url, createdAt }));
     }
     return (
         <div className="journal__entry" onClick={handleShowEnrtry}>
-            <div className="journal_entryimage" style={{
-                backgroundSize: 'cover',
-                backgroundImage: `url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1200px-React.svg.png)`
-            }}>
-            </div>
+            {
+                url &&
+                <div className="journal_entryimage"
+                    style={{
+                        backgroundSize: 'cover',
+                        backgroundImage: `url(${url})`
+                    }}>
+                </div>
+            }
             <div className="journal__entrybody">
                 <p className="journal__entrytitle">{title}</p>
                 <p className="journal__entrycontent">{body} </p>

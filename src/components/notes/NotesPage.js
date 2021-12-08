@@ -27,9 +27,12 @@ export const NotesPage = () => {
             <div className="notes__content">
                 <input type="text" placeholder="Title" name="title" className="notes__input" value={title} onChange={handleInputChange} />
                 <textarea placeholder="Write your note here" name="body" className="notes__textarea" value={body} onChange={handleInputChange} />
-                <div className="notes__image">
-                    <img src="https://s3-us-west-2.amazonaws.com/devcodepro/media/tutorials/instalacion-de-nodejs-en-ubuntu-t1.jpg" alt="save" />
-                </div>
+                {
+                    active.url &&
+                    <div className="notes__image">
+                        <img src="https://s3-us-west-2.amazonaws.com/devcodepro/media/tutorials/instalacion-de-nodejs-en-ubuntu-t1.jpg" alt="save" />
+                    </div>
+                }
             </div>
         </div>
     )
