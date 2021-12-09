@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { activeNote } from '../../actions/notes'
+import { activeNote, startDeleteNote } from '../../actions/notes'
 import { useForm } from '../../hooks/useForm'
 import { NoteAppBar } from './NoteAppBar'
 
@@ -21,6 +21,10 @@ export const NotesPage = () => {
     useEffect(() => {
         dispatch(activeNote(values.id, { ...values }));
     }, [dispatch, values])
+
+    const handleDelete = () => {
+        dispatch(startDeleteNote(active.id))
+    }
     return (
         <div className="notes__main">
             <NoteAppBar />
@@ -34,6 +38,10 @@ export const NotesPage = () => {
                     </div>
                 }
             </div>
+            <button
+                className='notes__btn'
+                onClick={handleDelete}
+            >Delete</button>
         </div>
     )
 }

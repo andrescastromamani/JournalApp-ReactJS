@@ -22,7 +22,7 @@ export const LoginPage = () => {
     return (
         <>
             <h1 className="auth__title">Login</h1>
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form animate__animated animate__bounce animate__delay-2s" onSubmit={handleSubmit}>
                 <label className="input__label">Email</label>
                 <input className="auth__input" type="email" name="email" value={email} onChange={setValues} placeholder="email@email.com" autoComplete="off" />
                 <label className="input__label">Password:</label>
